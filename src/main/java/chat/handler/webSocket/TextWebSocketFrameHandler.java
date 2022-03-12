@@ -29,7 +29,7 @@ public class TextWebSocketFrameHandler extends SimpleChannelInboundHandler<TextW
     protected void channelRead0(ChannelHandlerContext channelHandlerContext, TextWebSocketFrame textWebSocketFrame) throws Exception {
         //加一个计数器，然后丢到所有连接的客户端(所有客户端都能收到这个消息，包括发送端)
         channelGroup.writeAndFlush(textWebSocketFrame.retain());
-        System.out.println("来自客户端的消息: "+textWebSocketFrame.retain().text());
+        System.out.println("来自客户端 "+channelHandlerContext.channel().id()+" 的消息: "+textWebSocketFrame.retain().text());
     }
 
     @Override

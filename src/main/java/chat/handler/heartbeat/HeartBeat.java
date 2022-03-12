@@ -36,6 +36,7 @@ public class HeartBeat extends ChannelInitializer<Channel> {
         @Override
         public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
             if(evt instanceof IdleStateEvent){
+                System.out.println("心跳发送");
                 ctx.writeAndFlush(HEARTBEAT_SEQUENCE.duplicate()).addListener(ChannelFutureListener.CLOSE_ON_FAILURE);
             }else {
                 //不属于IdleStateEvent事件则传递给下一个通道处理程序继续往下走
