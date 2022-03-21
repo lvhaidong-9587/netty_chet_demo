@@ -10,7 +10,7 @@
 <button id="sendBtn">发送</button>
 <div id="recv"></div>
 <script type="text/javascript">
-    var websocket = new WebSocket("ws://127.0.0.1:8080/ws");
+    var websocket = new WebSocket("ws://127.0.0.1:6900/ws");
     websocket.onopen = function(){
         console.log("websocket open");
         document.getElementById("recv").innerHTML = "Connected";
